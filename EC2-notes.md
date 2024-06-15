@@ -108,6 +108,26 @@ We have the following set up:
 client --> route53 --> load balancer --> EC2
 
 
+## Image Builder
+Allows the weak of mind to easily create images, just learn Docker mate.  
+It does allow for automating security updates and whatnot quite nicely and easily to be fair.  
+
+### How do?
+1. Choose base OS
+1. Define software to install
+1. Run tests (i.e. does it boot correctly?)
+1. Distribute to various regions
+
+### Terminology
+**image pipeline** defines the config and E2E process of building images.  
+**image recipe** defines base image and installed software.  
+**build components** defines only the software.  
+
+
+
+
+
+
 
 
 
