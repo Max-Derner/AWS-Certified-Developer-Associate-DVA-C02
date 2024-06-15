@@ -11,3 +11,5 @@
 1. [CLI](./CLI-notes.md)
 1. [CloudShell](./CloudShell-notes.md) **not in exam!**
 1. [RDS](./RDS-notes.md)
+1. [Parameter Store](./ParameterStore-notes.md)
+1. [Secrets Manager](./SecretsManager-note.md)
