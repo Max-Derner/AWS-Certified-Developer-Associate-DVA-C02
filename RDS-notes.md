@@ -94,4 +94,7 @@ Caches frequently used data
 * supports sorting and ranking data
 
 ### When to use or not use
-:heavy_check_mark: 
+:heavy_check_mark: heavy read loads  
+:x: heavy write loads  
+:x: frequently changing data (this is only a cache after all)  
+:x: OLAP queries (RDS is poor choice anyway, go for RedShift)
