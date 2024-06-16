@@ -47,7 +47,7 @@ You can set up read replicas to speed up your services. This entails having your
 **Snapshots**  
 User initiated manual backup that provides snapshot of storage volume attached to DB instance.  
 * not automated
-* no retention period (all backups kept forever)
+* no retention period (all backups kept forever, unless **you** delete them)
 * because it's manual, each backup is a known state
 
 **Automated Backup**  
@@ -70,7 +70,7 @@ Remember how restoring from snapshot creates new RDS instance.
 
 
 ## RDS Proxy
-Basically, it just sits between your client and your DB. It maintains a pool of active connections to your RDS instances and shares those connections between clients, which is handy in speeding up applications that are constantly opening and closing connections. It also facilitates failover speeding it up by up to 66%.
+Basically, it just sits between your client and your DB. It maintains a pool of active connections to your RDS instances and shares those connections between clients, which is handy in speeding up applications that are constantly opening and closing connections. It also facilitates failover speeding it up by up to 66% and can itself be deployed multiple Azs.
 
 ## ElastiCache
 Caches frequently used data
@@ -89,7 +89,7 @@ Caches frequently used data
 
 **Redis**  
 * aimed at enterprise
-* works for complex data-types like hashes
+* works for complex data-types like lists and hashes
 * has persistance, multi-az, and failover
 * supports sorting and ranking data
 

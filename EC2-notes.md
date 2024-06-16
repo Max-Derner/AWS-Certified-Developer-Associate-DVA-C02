@@ -6,8 +6,8 @@
 |_____\____|_____|  
 ```
 
-## EC2 Instance Types
-**On demand** - pay for what you use  
+## EC2 Instance Pricing Styles
+**On demand** - pay for what you use, still one of the cheap-ish options  
 
 **Reserved** - declare a usage and get up to 72% discount  
 * Standard RIs - Cannot change size once bought in  
@@ -21,18 +21,22 @@ This is like shorting the market.
 * Use whenever you can't allow multi-tenant virtualisation  
 * Can be purchased as "on-demand" or "reserved"
 
+## EC2 Instance Types
+There are a variety of instance types that determine the underlying hardware. Don't you stress none mind, 'cause know what they are ain't on the test. Just know that there are different horses for different courses.  
+
 ## EC2 EBS Volumes
 **EBS** stands for Elastic Block Store.  
 It's basically a filesystem you can attach to your EC2 instance.  
 Gets automatically replicated across availability zones, to protect against hardware failure.  
 It's scalable to dynamically increase or decrease capacity with no downtime.  
 
+### Types
 [Docs](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html)  
-"gp2/gp3" is general purpose SSD. top of 16kIOPS  
-"io1/io2" is provisioned IOPS SSD (it be fast, think databases and shit) top of 64kIOPS  
-"io2 Block Express" is a SAN (Storage Area Network), this is the biggest and most performant. top of 256kIOPS  
-"st1" is a throughput optimised HDD (it's a fricken disk!) it can cheaply store tonnes of data. **Cannot** be a boot volume! top throughput of 500MB/s  
-"sc1" described as a cold HDD (lowest cost, super slow). Also **cannot** be a boot volume! top throughput of 250MB/s  
+* "**gp2/gp3**" is general purpose SSD. top of 16kIOPS  
+* "**io1/io2**" is provisioned IOPS SSD (it be fast, think databases and shit) top of 64kIOPS  
+* "**io2 Block Express**" is a SAN (Storage Area Network), this is the biggest and most performant. top of 256kIOPS  
+* "**st1**" is a throughput optimised HDD (it's a fricken disk!) it can cheaply store tonnes of data. **Cannot** be a boot volume! top throughput of 500MB/s  
+* "**sc1**" described as a cold HDD (lowest cost, super slow). Also **cannot** be a boot volume! top throughput of 250MB/s  
 
 ## Elastic Load Balancer
 Load balancer distributes traffic across a group of servers.  
@@ -122,8 +126,19 @@ It does allow for automating security updates and whatnot quite nicely and easil
 **image pipeline** defines the config and E2E process of building images.  
 **image recipe** defines base image and installed software.  
 **build components** defines only the software.  
+**AMI** this is an "Amazon Machine Image".  
+So, an AMI is just an image. Then an "EC2 instance" is an actual container.
 
+## AMIs
 
+### Regional
+AMIs are regional, if you want to use one in another region, you need to copy it out. Some places don't allow encryption (like Russia).  
+
+Rules for encryption and copying:
+* encrypted -> encrypted :heavy_check_mark:
+* unencrypted -> unencrypted :heavy_check_mark:
+* unencrypted -> encrypted :heavy_check_mark: (**but you must specify that you want encryption as it is not default behaviour**)
+* encrypted -> unencrypted :x:
 
 
 

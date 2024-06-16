@@ -30,6 +30,6 @@
 
 | Secrets Manager | Parameter Store | 
 |-----------------|-----------------|
-| use for Db credentials | wide use case | 
-| API keys               | config variables | 
-| Rotations of keys      | license keys |
+| keep DB creds, API keys, etc | wide range of use cases |
+| always encrypted | can specify encryption |  
+| can auto-rotate of keys      | can't do auto-rotation |
