@@ -113,8 +113,7 @@ client --> route53 --> load balancer --> EC2
 
 
 ## Image Builder
-Allows the weak of mind to easily create images, just learn Docker mate.  
-It does allow for automating security updates and whatnot quite nicely and easily to be fair.  
+Allows you to set up a way to automate rebuilding, getting security updates, and testing images.  
 
 ### How do?
 1. Choose base OS
