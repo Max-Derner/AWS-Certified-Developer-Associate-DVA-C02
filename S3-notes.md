@@ -20,9 +20,20 @@
 * different storage tiers at different prices
 * lifecycle management (define rules to move older items to cheaper storage tier)
 
+## S3 Object Breakdown
+* **Key** name of object
+* **Value** object itself
+* **Version ID** shows up when versioning objects and allows reference to older versions
+* **Metadata** additional info (e.g. content-type, last modified, etc)
+
+**N.B.** The largest object you can upload in a single `PUT` is 5Gb. When uploading objects larger than 100Mb, you should consider a multi-part upload.
+
 ## Security
 * optional Server-side encryption
 * Access Control Lists (ACLs) add a white list to the bucket as a whole, or to individual items within the bucket
+* Can enforce encryption:
+    * Deny requests that do not include `x-amz-server-side-encryption`
+    * Deny requests that do not use `aws:SecureTransport` to enforce use of `HTTPS/SSL`
 
 **Default settings:** bucket owner is the only one with access  
 **Bucket policies:** can apply what is basically an IAM policy to entire bucket  
@@ -32,7 +43,7 @@
 ## Storage Classes
 
 
-**N.B.** Any infrequent access storage class has a data retrieval charge
+**N.B.** S3 buckets have unlimited storage but each object has a max size of 5Tb
 
 | Bucket Type | Azs | Min Storage Duration | Min Object Size | Retrieval Time | Charged Access | Examples |
 |-|-|-|-|-|-|-|
@@ -62,3 +73,6 @@ At rest (client-side encryption):
 
 ## CORS
 Cross-Origin Resource Sharing policies can be set up for S3 buckets. You will need to do this to share resources from one bucket to another (e.g. static website setup pulling from a separate bucket).  
+
+## S3 Transfer Acceleration
+Is what it sounds like. It enables faster and still secure transfers transfers over long distances.

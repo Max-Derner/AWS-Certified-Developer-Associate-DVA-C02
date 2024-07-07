@@ -15,3 +15,5 @@
 1. [Secrets Manager](./SecretsManager-note.md)
 1. [Route 53](./Route53-notes.md)
 1. [S3](./S3-notes.md)
+1. [CloudFront](./CloudFront-notes.md)
+1. [Athena](./Athena-notes.md)
