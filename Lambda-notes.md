@@ -82,3 +82,22 @@ Storing data requires you save it to data store (e.g. S3, EFS, DynamoDB)
 * pass values to change behaviour in one environment vs the other
 * locked on version publish (once you publish your Lambda as a new version, then that version can't have it's env vars changed)
 
+## Retries
+lambda automatically performs two retries on failure
+
+## Dead Letter Queues
+Can be:
+* SQS
+* SNS
+* Destinations
+Lambda Destinations can send to one destination on success and another on failure.
+Destinations can be:
+* SQS
+* SNS
+* Lambda
+* EventBridge
+
+## Optimising
+Memory and CPU are tied, cannot up one and not the other.  
+Importing libraries is done on initialisation, and is a large contributor to cold-start time.
+
